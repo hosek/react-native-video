@@ -38,6 +38,7 @@ public class ReactExoplayerViewManager extends ViewGroupManager<ReactExoplayerVi
     private static final String PROP_DRM_LICENSE_URL = "drmUrl";
     private static final String PROP_DRM_LICENSE_HEADER = "drmHeader";
     private static final String PROP_DRM_NAME = "drmName";
+    private static final String PROP_USE_TEXTUREVIEW = "useTextureView";
 
     @Override
     public String getName() {
@@ -188,6 +189,11 @@ public class ReactExoplayerViewManager extends ViewGroupManager<ReactExoplayerVi
         catch (Exception ex){
             Log.e("DRM Info", ex.toString());
         }
+    }
+
+    @ReactProp(name = PROP_USE_TEXTUREVIEW, defaultBoolean = false)
+    public void setPropUseTextureview(final ReactExoplayerView videoView, final boolean useTextureView) {
+        videoView.useTextureView(useTextureView);
     }
 
     private boolean startsWithValidScheme(String uriString) {

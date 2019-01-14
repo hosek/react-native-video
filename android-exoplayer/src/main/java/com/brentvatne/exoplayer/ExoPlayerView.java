@@ -38,18 +38,18 @@ public final class ExoPlayerView extends FrameLayout {
     private final ComponentListener componentListener;
     private SimpleExoPlayer player;
 
-    public ExoPlayerView(Context context) {
-        this(context, null);
+    public ExoPlayerView(Context context, boolean useTextureView) {
+        this(context, null,0,useTextureView);
     }
 
-    public ExoPlayerView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+    public ExoPlayerView(Context context, AttributeSet attrs,boolean useTextureView) {
+        this(context, attrs, 0, useTextureView);
     }
 
-    public ExoPlayerView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ExoPlayerView(Context context, AttributeSet attrs, int defStyleAttr, boolean useTextureView) {
         super(context, attrs, defStyleAttr);
 
-        boolean useTextureView = false;
+        boolean useTextureView = useTextureView;
 
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,

@@ -106,6 +106,7 @@ class ReactExoplayerView extends FrameLayout implements
     private Uri srcUri;
     private String extension;
     private boolean repeat;
+    private boolean useTextureView;
     private boolean disableFocus;
     private float mProgressUpdateInterval = 250.0f;
     private boolean playInBackground = false;
@@ -168,7 +169,7 @@ class ReactExoplayerView extends FrameLayout implements
         LayoutParams layoutParams = new LayoutParams(
                 LayoutParams.MATCH_PARENT,
                 LayoutParams.MATCH_PARENT);
-        exoPlayerView = new ExoPlayerView(getContext());
+        exoPlayerView = new ExoPlayerView(getContext(),useTextureView);
         exoPlayerView.setLayoutParams(layoutParams);
 
         addView(exoPlayerView, 0, layoutParams);
@@ -735,6 +736,11 @@ class ReactExoplayerView extends FrameLayout implements
     public void setDrmLicenseHeader(String[] header){
         Log.d("setDrmLicenseHeader", header.toString());
         this.drmLicenseHeader = header;
+    }
+
+    public void setUseTextureView(boolean useTextureView){
+        Log.d("setUseTextureView", useTextureView.toString());
+        this.useTextureView = useTextureView;
     }
 
 
